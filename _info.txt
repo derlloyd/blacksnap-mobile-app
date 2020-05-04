@@ -1,0 +1,95 @@
+new spy camera app
+
+
+
+
+donate to http://iconian.com/commercial.html for font
+https://www.dafont.com/wolfs-bane-ii.font?text=BlackSnap&psize=l
+
+
+no - allow all orientations on blacksnsp screen, change styles to keep dots consistent
+ok - statusbar?
+ok - vibration pattern for recording
+ok - background white on flip orientation blacksnap screen
+no - selected in photo grid, bulk delete or save to camera roll
+done - screenOrientationv
+done - photoOrientation
+automatic - stop recording on unmount
+ok - video details expo/videoplayer
+ok - video photoGallery
+no - function calls too often - automatically take picture on face detect
+no need - put default settings in separate file
+
+
+max video duration
+
+
+blacksnap fade in then out on open Onboarding
+apploading screen can have outline font BlackSnap
+
+test android, vibration
+
+automatically adjust Brightness switch
+
+on app exit, reset brightness
+
+test first user experience by clearing localstorage
+
+onboarding slides / instructions content
+
+**** instructions ****
+
+Welcome to BlackSnap
+
+1. Welcome
+BlackSnap lets you to take pictures and record video from a dark screen 
+
+2. Sections
+The BlackSnap screen is divided into sections FYI - the sections flip with the phone
+
+The BlackSnap screen will automatically dim to the phone's lowest brightness
+
+3. Record Video
+Tap the middle section to start recording a video\n\nPhone will vibrate to signal the start of recording\n\nTap again to stop the recording\n\nPhone will vibrate twice at the end of the recording
+
+4. Take Picture
+Tap the bottom third section to take a picture\n\nPhone will vibrate after the picture is taken
+
+5. Front or Rear
+Tap the top right section to switch from rear (with a dot) to front camera (no dot)
+
+6. Settings
+Tap and hold the top left section to access the SETTINGS menu\n\Modify indicator dot size, vibration alerts, and save location\n\nAccess galleries where you can view, delete and move captured media
+
+7. BlackSnap
+Please use BlackSnap responsibly
+
+
+panther image from
+https://pixabay.com/en/monochrome-dark-wildlife-nature-3199102/
+
+
+brightness goes to 0 automatically
+auto-dim the screen
+
+middle recording (vibrate once, double vibrate on end)
+bottom 1/3 take pic (only vibrate once)
+tap top right to change camera from front to back
+hold top left for settings
+size of dots
+enable/disable vibration
+saved picture location
+
+
+
+icon 1024x1024
+
+
+google 
+
+short desc
+full desc
+max 8 screenshots
+icon 512x512
+feature graphic 1024 x 500
+promo video

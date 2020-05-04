@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "blacksnap",
+    "description": "BlackSnap private photo and video capture",
+    "slug": "blacksnap",
+    "privacy": "public",
+    "sdkVersion": "34.0.0",
+    "platforms": ["ios", "android"],
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.devstudio.blacksnap",
+      "buildNumber": "2.1"
+    },
+    "android": {
+      "package": "com.devstudio.blacksnap",
+      "versionCode": 2,
+      "permissions": [ "CAMERA", "READ_INTERNAL_STORAGE", "RECORD_AUDIO", "VIBRATE" ]
+    }
+  }
+}
