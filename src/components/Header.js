@@ -7,7 +7,7 @@ import {
   Platform
 } from "react-native";
 import { Text, Icon, Button } from "native-base";
-import * as Animatable from "react-native-animatable";
+// import * as Animatable from "react-native-animatable";
 
 const { width, height } = Dimensions.get("window");
 const isIphoneX =
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
             <Icon name="ios-arrow-back-outline" style={styles.backIcon} />
           </TouchableOpacity>
   
-          <Animatable.Text
-            animation="fadeIn"
+          <Text
+            // animation="fadeIn"
             style={{
               fontFamily: "wolfsbane2",
               color: "blue",
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
             }}
             >
             BlackSnap
-          </Animatable.Text>
+          </Text>
   
           <Text style={{ color: white, textAlign: "center", fontSize: 25 }}>
             {title}

@@ -12,7 +12,8 @@ import { Text, Button } from "native-base";
 import { Actions } from "react-native-router-flux";
 // import { FileSystem } from "expo";
 import * as FileSystem from 'expo-file-system';
-import * as Animatable from "react-native-animatable";
+// import * as Animatable from "react-native-animatable";
+
 import _ from "lodash";
 
 import { Header } from "../components/Header";
@@ -144,8 +145,8 @@ export default class PhotoGallery extends Component {
               key={photo.uri}
               onPress={() => this._onPressPhoto(photo, i)}
             >
-              <Animatable.Image
-                animation="fadeIn"
+              <Image
+                // animation="fadeIn"
                 key={photo.uri}
                 style={styles.picture}
                 source={{

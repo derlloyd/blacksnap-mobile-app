@@ -12,7 +12,6 @@ import { Actions } from "react-native-router-flux";
 // import { FileSystem, Video } from "expo";
 import * as FileSystem from 'expo-file-system';
 import { Video } from 'expo-av';
-import * as Animatable from "react-native-animatable";
 import _ from "lodash";
 
 import { Spinner } from "../components/Spinner";

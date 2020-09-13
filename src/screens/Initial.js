@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 // import { KeepAwake } from 'expo';
 // import { useKeepAwake } from 'expo-keep-awake';
 import { Actions } from "react-native-router-flux";
-import * as Animatable from "react-native-animatable";
+// import * as Animatable from "react-native-animatable";
 
 // const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
@@ -62,7 +62,12 @@ export default class Initial extends React.Component {
       <View style={styles.container}>
       {/* <KeepAwake /> */}
         <View style={styles.textContainer}>
-          <Animatable.Text
+          <Text
+            style={styles.fullText}
+          >
+            BlackSnap
+          </Text>
+          {/* <Animatable.Text
             // animation="fadeIn"
             animation={full}
             onAnimationEnd={this._onDone}
@@ -70,7 +75,7 @@ export default class Initial extends React.Component {
             style={styles.fullText}
           >
             BlackSnap
-          </Animatable.Text>
+          </Animatable.Text> */}
           {/* <Animatable.Text
             // animation="fadeIn"
             animation={outline}

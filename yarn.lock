@@ -812,12 +812,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@egjs/hammerjs@^2.0.17":
-  version "2.0.17"
-  resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
-  dependencies:
-    "@types/hammerjs" "^2.0.36"
-
 "@expo/vector-icons@^10.0.2", "@expo/vector-icons@^10.1.0":
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-10.1.0.tgz#3fb2517924b031c1b98f86fa51a2032a257759b0"
@@ -873,6 +867,10 @@
     xcode "^2.0.0"
     xmldoc "^0.4.0"
 
+"@react-native-community/masked-view@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.10.tgz#5dda643e19e587793bc2034dd9bf7398ad43d401"
+
 "@react-navigation/core@^3.7.6":
   version "3.7.6"
   resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.7.6.tgz#e0244fcdc22937825b252197f70308bbe5709c58"
@@ -882,6 +880,26 @@
     query-string "^6.11.1"
     react-is "^16.13.0"
 
+"@react-navigation/core@^5.12.3":
+  version "5.12.3"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.12.3.tgz#0484fcca290569a0dc10b70b99f00edd3f1fd93c"
+  dependencies:
+    "@react-navigation/routers" "^5.4.11"
+    escape-string-regexp "^4.0.0"
+    nanoid "^3.1.12"
+    query-string "^6.13.1"
+    react-is "^16.13.0"
+    use-subscription "^1.4.0"
+
+"@react-navigation/core@~3.5.1":
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.5.2.tgz#3a3d147b8419e5839e0f2ad4dea086bd2d307fe3"
+  dependencies:
+    hoist-non-react-statics "^3.3.0"
+    path-to-regexp "^1.7.0"
+    query-string "^6.4.2"
+    react-is "^16.8.6"
+
 "@react-navigation/native@^3.7.13":
   version "3.7.13"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-3.7.13.tgz#5fdf879d5af40fb5bf751b6d932dd30656c9991e"
@@ -889,13 +907,36 @@
     hoist-non-react-statics "^3.3.2"
     react-native-safe-area-view "^0.14.9"
 
+"@react-navigation/native@^5.7.3":
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.7.3.tgz#3cda5ee7b0fe0d980db6d788419f0af50a64deac"
+  dependencies:
+    "@react-navigation/core" "^5.12.3"
+    nanoid "^3.1.12"
+
+"@react-navigation/native@~3.6.2":
+  version "3.6.5"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-3.6.5.tgz#97b0b9a48f059a0704e3527f40fb034720ef363d"
+  dependencies:
+    hoist-non-react-statics "^3.3.2"
+    react-native-safe-area-view "^0.14.8"
+
+"@react-navigation/routers@^5.4.11":
+  version "5.4.11"
+  resolved "https://registry.yarnpkg.com/@react-navigation/routers/-/routers-5.4.11.tgz#75dbec1809e282c3749068845099c5bee2c792f0"
+  dependencies:
+    nanoid "^3.1.12"
+
+"@react-navigation/stack@^5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-5.9.0.tgz#bf24607175bf502798cc4c832aa8a86e55f3b365"
+  dependencies:
+    color "^3.1.2"
+    react-native-iphone-x-helper "^1.2.1"
+
 "@types/fbemitter@^2.0.32":
   version "2.0.32"
   resolved "https://registry.yarnpkg.com/@types/fbemitter/-/fbemitter-2.0.32.tgz#8ed204da0f54e9c8eaec31b1eec91e25132d082c"
-
-"@types/hammerjs@^2.0.36":
-  version "2.0.36"
-  resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.36.tgz#17ce0a235e9ffbcdcdf5095646b374c2bf615a4c"
 
 "@types/invariant@^2.2.29":
   version "2.2.32"
@@ -1493,7 +1534,7 @@ color-support@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/color-support/-/color-support-1.1.3.tgz#93834379a1cc9a0c61f82f52f0d04322251bd5a2"
 
-color@~3.1.2:
+color@^3.1.2, color@~3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/color/-/color-3.1.2.tgz#68148e7f85d41ad7649c5fa8c8106f098d229e10"
   dependencies:
@@ -1746,6 +1787,10 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
+escape-string-regexp@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
+
 eslint-config-prettier@^6.0.0:
   version "6.11.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.11.0.tgz#f6d2238c1290d01c859a8b5c1f7d352a0b0da8b1"
@@ -1838,20 +1883,20 @@ expo-asset@~6.0.0:
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
 
-expo-av@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/expo-av/-/expo-av-8.1.0.tgz#376e2a821168cd83e997c6dd84350fab6b293f10"
+expo-av@~6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/expo-av/-/expo-av-6.0.0.tgz#95a5a095583bec3ac0a35ba1e9b67e72ac4a6485"
   dependencies:
-    lodash "^4.17.15"
+    lodash "^4.17.11"
     nullthrows "^1.1.0"
 
-expo-brightness@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/expo-brightness/-/expo-brightness-8.1.0.tgz#89bcbbfb84bcecdf62ed5dd57651b0d5d6d9a3a9"
+expo-brightness@~6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/expo-brightness/-/expo-brightness-6.0.0.tgz#f96f392f15c7d62cd0ae044ffa86ec45fd09f0f9"
 
-expo-camera@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/expo-camera/-/expo-camera-8.2.0.tgz#9c849f0dc409e1fe6ee886f479e0ee0050b6d386"
+expo-camera@~6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/expo-camera/-/expo-camera-6.0.0.tgz#74db78874f87de7adcd63db0e96591c331fefd28"
   dependencies:
     lodash "^4.6.0"
     prop-types "^15.6.0"
@@ -1861,12 +1906,6 @@ expo-constants@~6.0.0:
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-6.0.0.tgz#ff4598985ba006e24949be3f05be7429e5bedacf"
   dependencies:
     ua-parser-js "^0.7.19"
-
-expo-file-system@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/expo-file-system/-/expo-file-system-8.1.0.tgz#d6aa66fa32c19982b94d0013f963c5ee972dfd6d"
-  dependencies:
-    uuid "^3.4.0"
 
 expo-file-system@~6.0.0:
   version "6.0.2"
@@ -1880,15 +1919,9 @@ expo-font@~6.0.1:
   dependencies:
     fontfaceobserver "^2.1.0"
 
-expo-image-picker@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-8.1.0.tgz#014e4f4aaef4c1daf56d13de27a41ef78660aa15"
-  dependencies:
-    expo-permissions "~8.1.0"
-
-expo-keep-awake@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-8.1.0.tgz#3a1d8aa5a8395d40c7d79e1c93020ae5f848e664"
+expo-image-picker@~6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-6.0.0.tgz#776f4487d986ba9cc82169a47445e8c13ca3108b"
 
 expo-keep-awake@~6.0.0:
   version "6.0.0"
@@ -1903,10 +1936,6 @@ expo-location@~6.0.0:
   resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-6.0.0.tgz#da4e22ee5aa951d2c65d94f9916323eb4b3f8a01"
   dependencies:
     invariant "^2.2.4"
-
-expo-permissions@^8.1.0, expo-permissions@~8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-8.1.0.tgz#a7f2ee91ba76ce3a467e7b10adaa9ca5201b226f"
 
 expo-permissions@~6.0.0:
   version "6.0.0"
@@ -2360,11 +2389,11 @@ hoist-non-react-statics@^1.0.5:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
-hoist-non-react-statics@^2.3.1:
+hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0:
   version "2.5.5"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
 
-hoist-non-react-statics@^3.3.2:
+hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   dependencies:
@@ -3237,6 +3266,10 @@ nan@^2.12.1:
   version "2.14.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.1.tgz#d7be34dfa3105b91494c3147089315eff8874b01"
 
+nanoid@^3.1.12:
+  version "3.1.12"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.12.tgz#6f7736c62e8d39421601e4a0c77623a97ea69654"
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -3574,7 +3607,7 @@ path-parse@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
 
-path-to-regexp@^1.8.0:
+path-to-regexp@^1.7.0, path-to-regexp@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-1.8.0.tgz#887b3ba9d84393e87a0a0b9f4cb756198b53548a"
   dependencies:
@@ -3721,9 +3754,9 @@ qs@^6.5.0:
   version "6.9.4"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.4.tgz#9090b290d1f91728d3c22e54843ca44aea5ab687"
 
-query-string@^6.11.1:
-  version "6.12.1"
-  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.12.1.tgz#2ae4d272db4fba267141665374e49a1de09e8a7c"
+query-string@^6.11.1, query-string@^6.13.1, query-string@^6.4.2:
+  version "6.13.1"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.13.1.tgz#d913ccfce3b4b3a713989fe6d39466d92e71ccad"
   dependencies:
     decode-uri-component "^0.2.0"
     split-on-first "^1.0.0"
@@ -3766,19 +3799,13 @@ react-devtools-core@^3.6.0:
     shell-quote "^1.6.1"
     ws "^3.3.1"
 
-react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1:
+react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
-
-react-native-animatable@^1.3.3:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.3.tgz#a13a4af8258e3bb14d0a9d839917e9bb9274ec8a"
-  dependencies:
-    prop-types "^15.7.2"
 
 react-native-app-intro-slider@^4.0.2:
   version "4.0.2"
@@ -3807,16 +3834,15 @@ react-native-fit-image@^1.5.5:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-gesture-handler@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.6.1.tgz#678e2dce250ed66e93af409759be22cd6375dd17"
+react-native-gesture-handler@~1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.3.0.tgz#d0386f565928ccc1849537f03f2e37fd5f6ad43f"
   dependencies:
-    "@egjs/hammerjs" "^2.0.17"
     hoist-non-react-statics "^2.3.1"
-    invariant "^2.2.4"
-    prop-types "^15.7.2"
+    invariant "^2.2.2"
+    prop-types "^15.5.10"
 
-react-native-iphone-x-helper@^1.0.3:
+react-native-iphone-x-helper@^1.0.3, react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
 
@@ -3831,7 +3857,11 @@ react-native-radio-buttons@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-radio-buttons/-/react-native-radio-buttons-1.0.0.tgz#be828b85897f80ca66ad66ad7adedb6b1890ab9d"
 
-react-native-router-flux@^4.2.0:
+react-native-reanimated@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.1.0.tgz#ba6864055ec3a206cdd5209a293fe653ce276206"
+
+react-native-router-flux@^4.0.0-beta.28:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-native-router-flux/-/react-native-router-flux-4.2.0.tgz#71c59f6a6250e9ed10d61ade506b9b809f879db0"
   dependencies:
@@ -3847,15 +3877,25 @@ react-native-router-flux@^4.2.0:
     react-navigation-tabs "^2.5.2"
     remove "^0.1.5"
 
-react-native-safe-area-view@^0.14.9:
+react-native-safe-area-context@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-0.7.3.tgz#ad6bd4abbabe195332c53810e4ce5851eb21aa2a"
+
+react-native-safe-area-view@^0.14.8, react-native-safe-area-view@^0.14.9:
   version "0.14.9"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.14.9.tgz#90ee8383037010d9a5055a97cf97e4c1da1f0c3d"
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
-react-native-screens@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.7.0.tgz#2d3cf3c39a665e9ca1c774264fccdb90e7944047"
+react-native-screens@1.0.0-alpha.22:
+  version "1.0.0-alpha.22"
+  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.22.tgz#7a120377b52aa9bbb94d0b8541a014026be9289b"
+
+react-native-tab-view@^1.2.0, react-native-tab-view@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-1.4.1.tgz#f113cd87485808f0c991abec937f70fa380478b9"
+  dependencies:
+    prop-types "^15.6.1"
 
 react-native-tab-view@^2.11.0:
   version "2.14.0"
@@ -3932,6 +3972,18 @@ react-navigation-drawer@^2.2.1:
   version "2.4.13"
   resolved "https://registry.yarnpkg.com/react-navigation-drawer/-/react-navigation-drawer-2.4.13.tgz#9a5240664c1022a58a598fb326124185a6f8f0f0"
 
+react-navigation-drawer@~1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-navigation-drawer/-/react-navigation-drawer-1.4.0.tgz#70f3dd83e3da9cd4ea6e2739526502c823d466b9"
+  dependencies:
+    react-native-tab-view "^1.2.0"
+
+react-navigation-stack@1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-1.5.3.tgz#cdc9f5a6dbdc55509a15f60d765722573dec1997"
+  dependencies:
+    prop-types "^15.7.2"
+
 react-navigation-stack@^1.7.3:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-1.10.3.tgz#e714e442b20427f0d2d3c18fce1f9e8cfe69be0b"
@@ -3946,6 +3998,24 @@ react-navigation-tabs@^2.5.2:
     react-lifecycles-compat "^3.0.4"
     react-native-safe-area-view "^0.14.9"
     react-native-tab-view "^2.11.0"
+
+react-navigation-tabs@~1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-navigation-tabs/-/react-navigation-tabs-1.2.0.tgz#602c147029bb4f1c569b26479ddba534fe3ebb19"
+  dependencies:
+    hoist-non-react-statics "^2.5.0"
+    prop-types "^15.6.1"
+    react-native-tab-view "^1.4.1"
+
+react-navigation@^3.11.1:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-3.13.0.tgz#e802bb5174c1ec8b727c69f8e4409ff1351a5250"
+  dependencies:
+    "@react-navigation/core" "~3.5.1"
+    "@react-navigation/native" "~3.6.2"
+    react-navigation-drawer "~1.4.0"
+    react-navigation-stack "1.5.3"
+    react-navigation-tabs "~1.2.0"
 
 react-navigation@^4.x:
   version "4.3.9"
@@ -4705,6 +4775,12 @@ url-parse@^1.4.4:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
+use-subscription@^1.4.0:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.4.1.tgz#edcbcc220f1adb2dd4fa0b2f61b6cc308e620069"
+  dependencies:
+    object-assign "^4.1.1"
+
 use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
@@ -4721,7 +4797,7 @@ uuid-js@^0.7.5:
   version "0.7.5"
   resolved "https://registry.yarnpkg.com/uuid-js/-/uuid-js-0.7.5.tgz#6c886d02a53d2d40dcf25d91a170b4a7b25b94d0"
 
-uuid@^3.3.2, uuid@^3.4.0:
+uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
 
