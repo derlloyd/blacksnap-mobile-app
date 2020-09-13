@@ -24,12 +24,13 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   },
   title: {
-    // fontFamily: 'wolfsbane2',
-    fontFamily: "ubuntu-light",
-    fontSize: 45,
-    color: white,
+    fontFamily: 'wolfsbane2',
+    // fontFamily: "ubuntu-light",
+    fontSize: 65,
+    // color: white,
+    color: "blue",
     textAlign: "center",
-    marginBottom: 40
+    marginBottom: 60
   },
   titleEnd: {
     fontFamily: 'wolfsbane2',
@@ -236,7 +237,7 @@ export default class Onboarding extends React.Component {
       <AppIntroSlider
         // dotColor={"red"}
         dotStyle={{backgroundColor: 'grey'}}
-        activeDotStyle={{backgroundColor: 'white'}}
+        activeDotStyle={{backgroundColor: 'blue'}}
         // activeDotColor={"white"}
         data={slides}
         renderItem={this._renderItem}
