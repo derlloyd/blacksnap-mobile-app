@@ -280,7 +280,7 @@ export default class BlackSnap extends PureComponent {
               .catch(err => alert(err));
           }
 
-          // wether cameraroll or internal, vibrate once pic taken
+          // whether cameraroll or internal, vibrate once pic taken
           if (this.state.vibrate) {
             Vibration.vibrate();
           }
