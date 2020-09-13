@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { Text, Button } from "native-base";
 import { Actions } from "react-native-router-flux";
-// import { FileSystem } from "expo";
 import * as FileSystem from 'expo-file-system';
 // import * as Animatable from "react-native-animatable";
 
@@ -65,7 +64,7 @@ export default class PhotoGallery extends Component {
     };
   }
   componentWillMount() {
-    Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+    // Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
     this._loadPhotos();
   }
   componentWillReceiveProps() {

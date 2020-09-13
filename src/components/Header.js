@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
             onPress={onPressBack}
             style={styles.backIconContainer}
           >
-            <Icon name="ios-arrow-back-outline" style={styles.backIcon} />
+            <Icon name="ios-arrow-back" style={styles.backIcon} />
           </TouchableOpacity>
   
           <Text

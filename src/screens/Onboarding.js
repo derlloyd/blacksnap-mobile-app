@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Dimensions, AsyncStorage } from "react-native";
+import { StyleSheet, View, Dimensions, Image, AsyncStorage } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
 import { Actions } from "react-native-router-flux";
 import { Ionicons } from '@expo/vector-icons';
@@ -11,6 +11,13 @@ const bgColor = "rgba(20,20,20,1)";
 const white = "#cccccc";
 
 const styles = StyleSheet.create({
+  slide: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10,
+    backgroundColor:'black'
+  },
   image: {
     width: width,
     height: width * 0.8,
@@ -21,7 +28,8 @@ const styles = StyleSheet.create({
     fontFamily: "ubuntu-light",
     fontSize: 45,
     color: white,
-    textAlign: "center"
+    textAlign: "center",
+    marginBottom: 40
   },
   titleEnd: {
     fontFamily: 'wolfsbane2',
@@ -31,6 +39,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   text: {
+    marginTop: 40,
     fontFamily: "ubuntu-light",
     color: white
   },
@@ -64,7 +73,7 @@ const slides = [
       "BlackSnap lets you take pictures and record video from a completely black screen\n\nSave media to the private BlackSnap gallery or directly to your phone's Camera Roll",
     image: require("../../assets/panther_bg.jpg"),
     imageStyle: styles.image,
-    backgroundColor: black
+    bg: black
   },
   {
     key: "two",
@@ -75,7 +84,7 @@ const slides = [
       "The BlackSnap screen is divided into 4 sections. The small indicator dots help you identify the sections\n\nBy default, the screen will automatically dim to the phone's lowest brightness setting",
     image: require("../../assets/img2Screens.png"),
     imageStyle: styles.image,
-    backgroundColor: bgColor
+    bg: bgColor
   },
   {
     key: "three",
@@ -86,7 +95,7 @@ const slides = [
       "Tap the middle section to start recording a video and the phone will vibrate once\n\nWhile recording, the screen will have only 1 indicator dot in the top corner\n\nTap again anywhere to stop recording and the phone will vibrate twice when done.  Instead of a tap, you can choose to stop recording with a long press",
     image: require("../../assets/img3Recordvideo.png"),
     imageStyle: styles.image,
-    backgroundColor: bgColor
+    bg: bgColor
   },
   {
     key: "four",
@@ -97,7 +106,7 @@ const slides = [
       "Tap the lower third section to take a picture\n\nThis section has 2 indicator dots\n\nThe phone will vibrate after the picture is taken",
     image: require("../../assets/img4Takepic.png"),
     imageStyle: styles.image,
-    backgroundColor: bgColor
+    bg: bgColor
   },
   {
     key: "five",
@@ -108,7 +117,7 @@ const slides = [
       "Tap the top right section to switch from back (with a dot) to front facing camera (no dot)",
     image: require("../../assets/img5Frontorback.png"),
     imageStyle: styles.image,
-    backgroundColor: bgColor
+    bg: bgColor
   },
   {
     key: "six",
@@ -119,18 +128,18 @@ const slides = [
       "In the Settings menu, you can select an image to use as the background to the BlackSnap screen\n\nFor example, a screenshot from your phone",
     image: require("../../assets/img6Bckgimg.png"),
     imageStyle: styles.image,
-    backgroundColor: bgColor
+    bg: bgColor
   },
   {
     key: "seven",
     title: "Settings",
-    titleStyle: styles.title,
-    textStyle: styles.text,
+    // titleStyle: styles.title,
+    // textStyle: styles.text,
     text:
       "Tap and HOLD the top left section to access the Settings menu. Modify indicator dot size, vibration alerts, background image and save location\n\nAccess galleries where you can view, delete and move captured media",
     image: require("../../assets/img7Settings.png"),
-    imageStyle: styles.image,
-    backgroundColor: bgColor
+    // imageStyle: styles.image,
+    // bg: bgColor
   },
   {
     key: "eight",
@@ -140,7 +149,7 @@ const slides = [
     text: "Please use BlackSnap responsibly",
     image: require("../../assets/panther_bg.jpg"),
     imageStyle: styles.image,
-    backgroundColor: black
+    bg: black
   }
 ];
 
@@ -149,7 +158,7 @@ export default class Onboarding extends React.Component {
     super(props);
   }
   componentWillMount() {
-    Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+    // Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
     this._loadSettings();
   }
   _loadSettings = async () => {
@@ -213,12 +222,24 @@ export default class Onboarding extends React.Component {
   _renderSkipButton = () => {
     return <Text style={styles.skip}>Skip</Text>
   }
+  _renderItem = ({ item }) => {
+    return (
+      <View style={styles.slide}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Image source={item.image} />
+        <Text style={styles.text}>{item.text}</Text>
+      </View>
+    );
+  }
   render() {
     return (
       <AppIntroSlider
-        dotColor={"grey"}
-        activeDotColor={"white"}
-        slides={slides}
+        // dotColor={"red"}
+        dotStyle={{backgroundColor: 'grey'}}
+        activeDotStyle={{backgroundColor: 'white'}}
+        // activeDotColor={"white"}
+        data={slides}
+        renderItem={this._renderItem}
         renderDoneButton={this._renderDoneButton}
         renderNextButton={this._renderNextButton}
         renderSkipButton={this._renderSkipButton}

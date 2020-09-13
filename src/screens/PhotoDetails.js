@@ -1,23 +1,18 @@
 import React, { Component } from "react";
 import {
-  AppRegistry,
-  Dimensions,
-  Image,
-  ScrollView,
   StyleSheet,
   Alert,
   CameraRoll,
-  TouchableOpacity,
   View
 } from "react-native";
 import { Text, Button, Icon } from "native-base";
 import FitImage from "react-native-fit-image";
 import { Actions } from "react-native-router-flux";
 import Moment from "moment";
+import * as FileSystem from 'expo-file-system';
 
 import { Spinner } from "../components/Spinner";
 
-const { width, height } = Dimensions.get("window");
 const white = "#cccccc";
 
 const styles = StyleSheet.create({
@@ -66,11 +61,11 @@ export default class PhotoDetails extends Component {
       spinner: false
     };
   }
-  componentWillMount() {
-    Expo.ScreenOrientation.allow(
-      Expo.ScreenOrientation.Orientation.ALL_BUT_UPSIDE_DOWN
-    );
-  }
+  // componentWillMount() {
+  //   Expo.ScreenOrientation.allow(
+  //     Expo.ScreenOrientation.Orientation.ALL_BUT_UPSIDE_DOWN
+  //   );
+  // }
   _back = () => {
     Actions.pop();
   };
@@ -121,7 +116,7 @@ export default class PhotoDetails extends Component {
   _deletePic = () => {
     this.setState({ spinner: true });
     // delete from filesystem
-    Expo.FileSystem.deleteAsync(this.state.photo.uri)
+    FileSystem.deleteAsync(this.state.photo.uri)
       .then(() => {
         // then pop back to grid,
         // passed random props to trigger componentWillReceiveProps to refresh
@@ -135,7 +130,7 @@ export default class PhotoDetails extends Component {
       <View style={styles.container}>
         <View style={styles.topContainer}>
           <Button transparent onPress={this._back}>
-            <Icon name="ios-arrow-back-outline" style={styles.backIcon} />
+            <Icon name="ios-arrow-back" style={styles.backIcon} />
           </Button>
 
           <View>
@@ -148,7 +143,7 @@ export default class PhotoDetails extends Component {
           </View>
 
           <Button transparent>
-            <Icon name="ios-arrow-back-outline" style={styles.spacer} />
+            <Icon name="ios-arrow-back" style={styles.spacer} />
           </Button>
         </View>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import {
   StatusBar,
   StyleSheet,
@@ -16,20 +16,10 @@ import { Text, Button, Icon } from "native-base";
 import { Actions } from "react-native-router-flux";
 import { Camera } from 'expo-camera';
 import * as Permissions from 'expo-permissions';
-import { useKeepAwake } from 'expo-keep-awake';
-import * as ScreenOrientation from 'expo-screen-orientation';
+import { activateKeepAwake } from 'expo-keep-awake';
+// import * as ScreenOrientation from 'expo-screen-orientation';
 import * as FileSystem from 'expo-file-system';
 import * as Brightness from 'expo-brightness';
-// import {
-  // Camera,
-  // Permissions,
-  // KeepAwake,
-  // ScreenOrientation,
-  // FileSystem,
-  // Brightness
-// } from "expo";
-
-import { Spinner } from "../components/Spinner";
 
 const styles = StyleSheet.create({
   container: {
@@ -106,7 +96,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class BlackSnap extends React.Component {
+export default class BlackSnap extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -129,15 +119,14 @@ export default class BlackSnap extends React.Component {
     };
   }
   async componentWillMount() {
-    // KeepAwake.activate();
-    useKeepAwake();
-    ScreenOrientation.allow(ScreenOrientation.Orientation.PORTRAIT);
+    // ScreenOrientation.allow(ScreenOrientation.Orientation.PORTRAIT);
     await this._requestCameraPermission();
     await this._requestCameraRollPermission();
     await this._requestAudioPermission();
-    this._loadSettings();
+    this._loadSettings();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       2
   }
-  componentDidMount() {
+  componentDidMount() {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+    activateKeepAwake();
     FileSystem.makeDirectoryAsync(
       FileSystem.documentDirectory + "photos"
     ).catch(e => {
@@ -209,15 +198,16 @@ export default class BlackSnap extends React.Component {
       return;
     }
 
-    const { status } = await Permissions.getAsync(
-      Permissions.SYSTEM_BRIGHTNESS
-    );
+    // const { status } = await Permissions.getAsync(
+    //   Permissions.SYSTEM_BRIGHTNESS
+    // );
+    const { status } = await Brightness.requestPermissionsAsync();
     if (status === "granted") {
       // save original brightness to state
-      Expo.Brightness.getBrightnessAsync().then(brightness => {
+      Brightness.getBrightnessAsync().then(brightness => {
         // console.log("original brightness", brightness);
         // change this screen to dark as possible
-        Expo.Brightness.setSystemBrightnessAsync(0);
+        Brightness.setSystemBrightnessAsync(0);
         // this will render dots and enable blacksnap
         this.setState({ brightness });
       });
@@ -231,13 +221,14 @@ export default class BlackSnap extends React.Component {
       return;
     }
 
-    const { status } = await Expo.Permissions.getAsync(
-      Expo.Permissions.SYSTEM_BRIGHTNESS
-    );
+    // const { status } = await Expo.Permissions.getAsync(
+    //   Expo.Permissions.SYSTEM_BRIGHTNESS
+    // );
+    const { status } = await Brightness.requestPermissionsAsync();
     if (status === "granted") {
       // brightness back to original
       if (this.state.brightness) {
-        Expo.Brightness.setSystemBrightnessAsync(this.state.brightness);
+        Brightness.setSystemBrightnessAsync(this.state.brightness);
       }
     }
   };

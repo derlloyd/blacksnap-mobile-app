@@ -15,13 +15,13 @@ import {
 import { Text, Button, Icon } from "native-base";
 import { Actions } from "react-native-router-flux";
 import { RadioButtons } from "react-native-radio-buttons";
-// import { ImagePicker } from 'expo';
-import * as ImagePicker from 'expo-image-picker';
+import * as ImagePicker from "expo-image-picker";
+import * as Brightness from "expo-brightness";
+import * as FileSystem from "expo-file-system";
 
 import { Header } from "../components/Header";
 const { width, height } = Dimensions.get("window");
-const isIphoneX =
-Platform.OS === "ios" && height === 812 && width === 375;
+const isIphoneX = Platform.OS === "ios" && height === 812 && width === 375;
 
 // options: http://www.color-hex.com/color/ffffff
 const white = "#cccccc";
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "black",
     padding: 2,
-    paddingBottom: isIphoneX ? 20 : 0,
+    paddingBottom: isIphoneX ? 20 : 0
   },
   itemRow: {
     flexDirection: "row",
@@ -57,8 +57,10 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(32,32,32,1)"
   },
   buttonsContainer: {
-    flexDirection: "row",
-    width
+    // margin: 10,
+    flexDirection: "row"
+    // width,
+    // backgroundColor: 'red'
   },
   buttons: {
     flex: 1
@@ -79,9 +81,9 @@ export default class Settings extends Component {
       ...this.props.settings
     };
   }
-  componentWillMount() {
-    Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
-  }
+  // componentWillMount() {
+  //   Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+  // }
   componentDidMount() {
     this._resetBrightness();
   }
@@ -91,13 +93,14 @@ export default class Settings extends Component {
       return;
     }
 
-    const { status } = await Expo.Permissions.getAsync(
-      Expo.Permissions.SYSTEM_BRIGHTNESS
-    );
+    // const { status } = await Expo.Permissions.getAsync(
+    //   Expo.Permissions.SYSTEM_BRIGHTNESS
+    // );
+    const { status } = await Brightness.requestPermissionsAsync();
     if (status === "granted") {
       // brightness back to original
       if (this.state.brightness) {
-        Expo.Brightness.setSystemBrightnessAsync(this.state.brightness);
+        Brightness.setSystemBrightnessAsync(this.state.brightness);
       }
     }
   };
@@ -127,13 +130,13 @@ export default class Settings extends Component {
   };
   _toPhotoGallery = () => {
     if (this.state.saveToCameraRoll) {
-      Alert.alert('','Save to Camera Roll is selected');
+      Alert.alert("", "Save to Camera Roll is selected");
     }
     Actions.PhotoGallery();
   };
   _toVideoGallery = () => {
     if (this.state.saveToCameraRoll) {
-      Alert.alert('','Save to Camera Roll is selected');
+      Alert.alert("", "Save to Camera Roll is selected");
     }
     Actions.VideoGallery();
   };
@@ -188,14 +191,14 @@ export default class Settings extends Component {
   };
   _removeBackgroundImage = () => {
     // delete from filesystem
-    Expo.FileSystem.deleteAsync(this.state.backgroundUri)
+    FileSystem.deleteAsync(this.state.backgroundUri)
       .then(() => {
         // console.log('file deleted ---')
         // then change backgroundUri to null, that will change button
         this._updateBackgroundUri(null);
       })
       .catch(err => alert(err));
-  }
+  };
   _renderOption = (option, selected, onSelect, index) => {
     return (
       <TouchableOpacity onPress={onSelect} key={index}>
@@ -259,17 +262,17 @@ export default class Settings extends Component {
     if (this.state.backgroundUri) {
       return (
         <Button full warning bordered onPress={this._removeBackgroundImage}>
-        <Text>REMOVE BACKGROUND IMAGE</Text>
-      </Button>
-    );
+          <Text>REMOVE BACKGROUND IMAGE</Text>
+        </Button>
+      );
     } else {
       return (
         <Button full bordered onPress={this._pickBackgroundImage}>
-        <Text>ADD BACKGROUND IMAGE</Text>
-      </Button>
-    );
-  }
-  }
+          <Text>ADD BACKGROUND IMAGE</Text>
+        </Button>
+      );
+    }
+  };
   render() {
     // console.log(this.state);
     return (
@@ -277,124 +280,127 @@ export default class Settings extends Component {
         <Header onPressBack={this._back} title="Settings" />
 
         <Text> </Text>
+        <Text> </Text>
         <ScrollView>
-
-        <View style={styles.sliderContainer}>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center"
-            }}
+          <View style={styles.buttonsContainer}>
+            <Button
+              full
+              bordered
+              style={styles.buttons}
+              onPress={this._toPhotoGallery}
             >
-            <Text style={{ color: white }}>Indicator Dot Size</Text>
-            <Icon
-              name="md-water"
-              style={{
-                fontSize: this.state.dotSize,
-                color: "white",
-                paddingRight: 5
-              }}
-              />
+              <Text>PICTURE GALLERY</Text>
+            </Button>
+            <Button
+              full
+              bordered
+              style={styles.buttons}
+              onPress={this._toVideoGallery}
+            >
+              <Text>VIDEO GALLERY</Text>
+            </Button>
           </View>
 
-          <Slider
-            maximumValue={15}
-            minimumValue={1}
-            onSlidingComplete={this._onSlidingComplete}
-            step={1}
-            value={this.state.dotSize}
-            minimumTrackTintColor={"blue"}
-            thumbTintColor={white}
+          {/* <Text> </Text> */}
+
+          <Button full bordered onPress={this._toIntro } style={styles.buttons}>
+            <Text>INSTRUCTIONS</Text>
+          </Button>
+
+          <Text>s[ace] </Text>
+          <Text> </Text>
+
+          <View style={styles.sliderContainer}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center"
+              }}
+            >
+              <Text style={{ color: white }}>Indicator Dot Size</Text>
+              <Icon
+                name="md-water"
+                style={{
+                  fontSize: this.state.dotSize,
+                  color: "white",
+                  paddingRight: 5
+                }}
+              />
+            </View>
+
+            <Slider
+              maximumValue={15}
+              minimumValue={1}
+              onSlidingComplete={this._onSlidingComplete}
+              step={1}
+              value={this.state.dotSize}
+              minimumTrackTintColor={"blue"}
+              thumbColor={white}
             />
-        </View>
+          </View>
 
-        <Text> </Text>
+          <Text> </Text>
 
-        <View style={styles.itemRow}>
-          <Text style={{ color: white }}>Vibrate on Camera Action</Text>
-          <Switch
-            onValueChange={this._toggleVibrate}
-            value={this.state.vibrate}
-            onTintColor={"blue"}
-            thumbTintColor={white}
+          <View style={styles.itemRow}>
+            <Text style={{ color: white }}>Vibrate on Camera Action</Text>
+            <Switch
+              onValueChange={this._toggleVibrate}
+              value={this.state.vibrate}
+              // onTintColor={"blue"}
+              trackColor={"blue"}
+              thumbColor={white}
             />
-        </View>
+          </View>
 
-        <Text> </Text>
+          <Text> </Text>
           <RadioButtons
             options={["Single Tap Screen", "Long Press Screen"]}
             onSelection={this._setSelectedOptionLongPress}
             selectedOption={this.state.selectedLongPress}
             renderOption={this._renderOption}
             renderContainer={this._renderContainerLongPress}
+          />
+          <Text> </Text>
+
+          <View style={styles.itemRow}>
+            <Text style={{ color: white }}>Auto-Adjust Screen Brightness</Text>
+            <Switch
+              onValueChange={this._toggleAutoBrightness}
+              value={this.state.autoBrightness}
+              // onTintColor={"blue"}
+              trackColor={"blue"}
+              thumbColor={white}
             />
-            <Text> </Text>
+          </View>
 
-        <View style={styles.itemRow}>
-          <Text style={{ color: white }}>Auto-Adjust Screen Brightness</Text>
-          <Switch
-            onValueChange={this._toggleAutoBrightness}
-            value={this.state.autoBrightness}
-            onTintColor={"blue"}
-            thumbTintColor={white}
-            />
-        </View>
+          <Text> </Text>
 
-        <Text> </Text>
+          {this._renderChooseBackgroundButton()}
 
-        {this._renderChooseBackgroundButton()}
+          <Text> </Text>
 
-        <Text> </Text>
-
-        <RadioButtons
-          options={["Camera Roll", "Internal Gallery"]}
-          onSelection={this._setSelectedOption}
-          selectedOption={this.state.selected}
-          renderOption={this._renderOption}
-          renderContainer={this._renderContainer}
+          <RadioButtons
+            options={["Camera Roll", "Internal Gallery"]}
+            onSelection={this._setSelectedOption}
+            selectedOption={this.state.selected}
+            renderOption={this._renderOption}
+            renderContainer={this._renderContainer}
           />
 
-        <Text> </Text>
+          <Text> </Text>
 
-        <View style={styles.buttonsContainer}>
-          <Button
-            full
-            bordered
-            style={styles.buttons}
-            onPress={this._toPhotoGallery}
-            >
-            <Text>PICTURE GALLERY</Text>
-          </Button>
-          <Button
-            full
-            bordered
-            style={styles.buttons}
-            onPress={this._toVideoGallery}
-            >
-            <Text>VIDEO GALLERY</Text>
-          </Button>
-        </View>
+          <View style={{ justifyContent: "center" }}>
+            <Text note style={{ textAlign: "center" }}>
+              BlackSnap version 3.1
+            </Text>
+            <Text note style={{ textAlign: "center" }}>
+              Created by DevStudio Montreal
+            </Text>
+          </View>
 
-        <Text> </Text>
-
-          <Button full bordered onPress={this._toIntro}>
-            <Text>INSTRUCTIONS</Text>
-          </Button>
-
-        <Text> </Text>
-
-        <View style={{ justifyContent: "center" }}>
-          <Text note style={{ textAlign: "center" }}>
-            BlackSnap version 3.1
-          </Text>
-          <Text note style={{ textAlign: "center" }}>
-            Created by DevStudio Montreal
-          </Text>
-        </View>
-
-        <Text> </Text>
-            </ScrollView>
+          <Text> </Text>
+        </ScrollView>
       </View>
     );
   }

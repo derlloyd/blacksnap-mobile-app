@@ -2,7 +2,7 @@ import React from "react";
 // import { StyleSheet } from "react-native";
 import { Router, Scene, Stack } from "react-native-router-flux";
 
-import Initial from "./screens/Initial";
+import Initial from "./screens/Initial.js";
 import BlackSnap from "./screens/BlackSnap";
 import Onboarding from "./screens/Onboarding";
 import Settings from "./screens/Settings";

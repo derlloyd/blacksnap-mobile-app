@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import {
-  StatusBar,
   StyleSheet,
   View,
   Dimensions,
   ScrollView,
   TouchableOpacity
 } from "react-native";
-import { Text, Button } from "native-base";
+import { Text } from "native-base";
 import { Actions } from "react-native-router-flux";
-// import { FileSystem, Video } from "expo";
 import * as FileSystem from 'expo-file-system';
 import { Video } from 'expo-av';
 import _ from "lodash";
@@ -65,7 +63,7 @@ export default class VideoGallery extends Component {
     };
   }
   componentWillMount() {
-    Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+    // Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
     this._loadVideos();
   }
   componentWillReceiveProps() {
