@@ -5,7 +5,8 @@ import {
   // CameraRoll,
   View,
 } from "react-native";
-import CameraRoll from "@react-native-community/cameraroll";
+// import CameraRoll from "@react-native-community/cameraroll";
+import * as MediaLibrary from 'expo-media-library';
 import { Text, Button, Icon } from "native-base";
 import { Actions } from "react-native-router-flux";
 import { Video } from 'expo-av';
@@ -104,16 +105,17 @@ export default class VideoDetails extends Component {
       { cancelable: true }
     );
   };
-  _moveVideo = () => {
+  _moveVideo = async () => {
     this.setState({ spinner: true });
     // copy to Camera Roll
-    CameraRoll.save(this.state.video.uri)
-      .then(uri => {
+    await MediaLibrary.saveToLibraryAsync(this.state.video.uri)
+    // CameraRoll.save(this.state.video.uri)
+    //   .then(uri => {
         // console.log("saved to camera roll", uri);
         // then delete video and go back
         this._deleteVideo();
-      })
-      .catch(e => alert(e));
+      // })
+      // .catch(e => alert(e));
   };
   _deleteVideo = () => {
     this.setState({ spinner: true });

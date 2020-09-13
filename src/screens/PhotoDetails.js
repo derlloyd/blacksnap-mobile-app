@@ -5,7 +5,7 @@ import {
   // CameraRoll,
   View
 } from "react-native";
-import CameraRoll from "@react-native-community/cameraroll";
+// import CameraRoll from "@react-native-community/cameraroll";
 import * as MediaLibrary from 'expo-media-library';
 import { Text, Button, Icon } from "native-base";
 import FitImage from "react-native-fit-image";
@@ -105,17 +105,30 @@ export default class PhotoDetails extends Component {
       { cancelable: true }
     );
   };
-  _movePic = () => {
+  _movePic = async () => {
     this.setState({ spinner: true });
     // copy to Camera Roll
-    // MediaLibrary.saveToLibraryAsync(data.uri)
-    CameraRoll.save(this.state.photo.uri)
-      .then(uri => {
+    await MediaLibrary.saveToLibraryAsync(this.state.photo.uri);
+    // .then(() => console.log('saved piccccc'))
+    // .catch(e => alert("Camera Roll Error"));
+console.log('afer save')
+    // CameraRoll.save(this.state.photo.uri)
+      // .then(uri => {
         // then delete pic and go back
         this._deletePic();
-      })
-      .catch(e => alert("Camera Roll Error"));
+      // })
   };
+  // _movePicOLD = () => {
+  //   this.setState({ spinner: true });
+  //   // copy to Camera Roll
+  //   MediaLibrary.saveToLibraryAsync(data.uri)
+  //   CameraRoll.save(this.state.photo.uri)
+  //     .then(uri => {
+  //       // then delete pic and go back
+  //       this._deletePic();
+  //     })
+  //     .catch(e => alert("Camera Roll Error"));
+  // };
   _deletePic = () => {
     this.setState({ spinner: true });
     // delete from filesystem

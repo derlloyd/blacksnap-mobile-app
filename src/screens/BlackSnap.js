@@ -12,7 +12,7 @@ import {
   Image,
   AsyncStorage
 } from "react-native";
-import CameraRoll from "@react-native-community/cameraroll";
+// import CameraRoll from "@react-native-community/cameraroll";
 import * as MediaLibrary from 'expo-media-library';
 import { Text, Button, Icon } from "native-base";
 import { Actions } from "react-native-router-flux";
@@ -251,18 +251,18 @@ export default class BlackSnap extends PureComponent {
         .takePictureAsync()
         .then(data => {
           if (this.state.saveToCameraRoll) {
-            console.log('ok take pic and save...')
+            // console.log('ok take pic and save...')
             // save data.uri to camera roll
-            console.log('data uri', data.uri)
-            // MediaLibrary.saveToLibraryAsync(data.uri)
-            CameraRoll.save(data.uri)
-              .then(uri => {
-                console.log("saved to camera roll", uri)
-              })
-              .catch(e => {
-                console.log("cameraRoll error", e)
-                alert(e);
-              });
+            // console.log('data uri', data.uri)
+            MediaLibrary.saveToLibraryAsync(data.uri);
+            // CameraRoll.save(data.uri)
+            //   .then(uri => {
+            //     console.log("saved to camera roll", uri)
+            //   })
+            //   .catch(e => {
+            //     console.log("cameraRoll error", e)
+            //     alert(e);
+            //   });
           } else {
             // save data to filesystem using timestamp
             let now = Date.now();
@@ -308,11 +308,12 @@ export default class BlackSnap extends PureComponent {
 
           if (this.state.saveToCameraRoll) {
             // save data.uri to camera roll
-            CameraRoll.save(data.uri)
-              .then(uri => {
-                // console.log("saved to camera roll", uri)
-              })
-              .catch(e => alert(e));
+            MediaLibrary.saveToLibraryAsync(data.uri);
+            // CameraRoll.save(data.uri)
+            //   .then(uri => {
+            //     // console.log("saved to camera roll", uri)
+            //   })
+            //   .catch(e => alert(e));
           } else {
             // save data.uri to filesystem
             let now = Date.now();
