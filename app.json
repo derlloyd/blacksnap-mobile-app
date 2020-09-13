@@ -4,8 +4,10 @@
     "description": "BlackSnap private photo and video capture",
     "slug": "blacksnap",
     "privacy": "public",
-    "sdkVersion": "34.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,7 +30,12 @@
     "android": {
       "package": "com.devstudio.blacksnap",
       "versionCode": 2,
-      "permissions": [ "CAMERA", "READ_INTERNAL_STORAGE", "RECORD_AUDIO", "VIBRATE" ]
+      "permissions": [
+        "CAMERA",
+        "READ_INTERNAL_STORAGE",
+        "RECORD_AUDIO",
+        "VIBRATE"
+      ]
     }
   }
 }

@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import {
   StyleSheet,
   Alert,
-  CameraRoll,
+  // CameraRoll,
   View,
 } from "react-native";
+import CameraRoll from "@react-native-community/cameraroll";
 import { Text, Button, Icon } from "native-base";
 import { Actions } from "react-native-router-flux";
 import { Video } from 'expo-av';
@@ -106,7 +107,7 @@ export default class VideoDetails extends Component {
   _moveVideo = () => {
     this.setState({ spinner: true });
     // copy to Camera Roll
-    CameraRoll.saveToCameraRoll(this.state.video.uri)
+    CameraRoll.save(this.state.video.uri)
       .then(uri => {
         // console.log("saved to camera roll", uri);
         // then delete video and go back

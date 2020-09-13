@@ -62,11 +62,14 @@ export default class VideoGallery extends Component {
       videos: null
     };
   }
-  componentWillMount() {
-    // Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+  // componentWillMount() {
+  //   // Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+  //   this._loadVideos();
+  // }
+  UNSAFE_componentWillReceiveProps() {
     this._loadVideos();
   }
-  componentWillReceiveProps() {
+  componentDidMount() {
     this._loadVideos();
   }
   _loadVideos() {

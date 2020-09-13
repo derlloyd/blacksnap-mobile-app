@@ -8,10 +8,12 @@ import {
   Linking,
   Vibration,
   Platform,
-  CameraRoll,
+  // CameraRoll,
   Image,
   AsyncStorage
 } from "react-native";
+import CameraRoll from "@react-native-community/cameraroll";
+import * as MediaLibrary from 'expo-media-library';
 import { Text, Button, Icon } from "native-base";
 import { Actions } from "react-native-router-flux";
 import { Camera } from 'expo-camera';
@@ -118,14 +120,14 @@ export default class BlackSnap extends PureComponent {
       backgroundUri: null,
     };
   }
-  async componentWillMount() {
-    // ScreenOrientation.allow(ScreenOrientation.Orientation.PORTRAIT);
+  // async componentWillMount() {
+  //   // ScreenOrientation.allow(ScreenOrientation.Orientation.PORTRAIT);
+  // }
+  async componentDidMount() {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
     await this._requestCameraPermission();
     await this._requestCameraRollPermission();
     await this._requestAudioPermission();
     this._loadSettings();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       2
-  }
-  componentDidMount() {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
     activateKeepAwake();
     FileSystem.makeDirectoryAsync(
       FileSystem.documentDirectory + "photos"
@@ -249,13 +251,16 @@ export default class BlackSnap extends PureComponent {
         .takePictureAsync()
         .then(data => {
           if (this.state.saveToCameraRoll) {
+            console.log('ok take pic and save...')
             // save data.uri to camera roll
-            CameraRoll.saveToCameraRoll(data.uri)
+            console.log('data uri', data.uri)
+            // MediaLibrary.saveToLibraryAsync(data.uri)
+            CameraRoll.save(data.uri)
               .then(uri => {
-                // console.log("saved to camera roll", uri)
+                console.log("saved to camera roll", uri)
               })
               .catch(e => {
-                // console.log("cameraRoll error", e)
+                console.log("cameraRoll error", e)
                 alert(e);
               });
           } else {
@@ -303,7 +308,7 @@ export default class BlackSnap extends PureComponent {
 
           if (this.state.saveToCameraRoll) {
             // save data.uri to camera roll
-            CameraRoll.saveToCameraRoll(data.uri)
+            CameraRoll.save(data.uri)
               .then(uri => {
                 // console.log("saved to camera roll", uri)
               })

@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import {
   StyleSheet,
   Alert,
-  CameraRoll,
+  // CameraRoll,
   View
 } from "react-native";
+import CameraRoll from "@react-native-community/cameraroll";
+import * as MediaLibrary from 'expo-media-library';
 import { Text, Button, Icon } from "native-base";
 import FitImage from "react-native-fit-image";
 import { Actions } from "react-native-router-flux";
@@ -106,7 +108,8 @@ export default class PhotoDetails extends Component {
   _movePic = () => {
     this.setState({ spinner: true });
     // copy to Camera Roll
-    CameraRoll.saveToCameraRoll(this.state.photo.uri)
+    // MediaLibrary.saveToLibraryAsync(data.uri)
+    CameraRoll.save(this.state.photo.uri)
       .then(uri => {
         // then delete pic and go back
         this._deletePic();
@@ -121,6 +124,7 @@ export default class PhotoDetails extends Component {
         // then pop back to grid,
         // passed random props to trigger componentWillReceiveProps to refresh
         Actions.pop({ refresh: { refresh: Math.random() } });
+        // Actions.refresh(this.props)
       })
       .catch(err => alert(err));
   };

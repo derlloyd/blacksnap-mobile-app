@@ -63,12 +63,16 @@ export default class PhotoGallery extends Component {
       photos: null
     };
   }
-  componentWillMount() {
-    // Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+  // componentWillMount() {
+  //   // Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+  //   this._loadPhotos();
+  // }
+  UNSAFE_componentWillReceiveProps() {
     this._loadPhotos();
   }
-  componentWillReceiveProps() {
+  componentDidMount() {
     this._loadPhotos();
+    // console.log('did mount');
   }
   _loadPhotos() {
     FileSystem.readDirectoryAsync(FileSystem.documentDirectory + "photos").then(

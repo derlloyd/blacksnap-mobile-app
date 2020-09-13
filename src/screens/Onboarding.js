@@ -14,9 +14,10 @@ const styles = StyleSheet.create({
   slide: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     padding: 10,
-    backgroundColor:'black'
+    backgroundColor:'black',
+    paddingBottom: '30%'
   },
   image: {
     width: width,
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     // color: white,
     color: "blue",
     textAlign: "center",
-    marginBottom: 60
+    marginBottom: 30
   },
   titleEnd: {
     fontFamily: 'wolfsbane2',
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   text: {
-    marginTop: 40,
+    marginTop: 20,
     fontFamily: "ubuntu-light",
     color: white
   },
@@ -158,8 +159,10 @@ export default class Onboarding extends React.Component {
   constructor(props) {
     super(props);
   }
-  componentWillMount() {
-    // Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+  // componentWillMount() {
+  //   // Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+  // }
+  componentDidMount() {
     this._loadSettings();
   }
   _loadSettings = async () => {
