@@ -30,13 +30,7 @@
     },
     "android": {
       "package": "com.devstudio.blacksnap",
-      "versionCode": 2,
-      "permissions": [
-        "CAMERA",
-        "READ_INTERNAL_STORAGE",
-        "RECORD_AUDIO",
-        "VIBRATE"
-      ]
+      "versionCode": 2
     }
   }
 }
