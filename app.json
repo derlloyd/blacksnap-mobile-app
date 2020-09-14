@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "blacksnap",
+    "name": "BlackSnap",
     "description": "BlackSnap private photo and video capture",
-    "slug": "blacksnap",
+    "slug": "BlackSnap",
     "privacy": "public",
     "platforms": [
       "ios",
       "android"
     ],
     "sdkVersion": "38.0.0",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -26,11 +26,11 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.devstudio.blacksnap",
-      "buildNumber": "2.1"
+      "buildNumber": "3.0"
     },
     "android": {
       "package": "com.devstudio.blacksnap",
-      "versionCode": 2
+      "versionCode": 3
     }
   }
 }
